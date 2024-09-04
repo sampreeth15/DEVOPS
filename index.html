@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body ng-app="registrationApp" ng-controller="RegistrationController">
+    <div class="container">
+        <h1>Registration</h1>
+        <form name="registrationForm" ng-submit="submitForm()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" ng-model="formData.username" required>
+                <small class="error" ng-show="registrationForm.username.$touched && registrationForm.username.$invalid">
+                    Username is required
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" ng-model="formData.email" required>
+                <small class="error" ng-show="registrationForm.email.$touched && registrationForm.email.$invalid">
+                    A valid email is required
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" ng-model="formData.password" required>
+                <small class="error" ng-show="registrationForm.password.$touched && registrationForm.password.$invalid">
+                    Password is required
+                </small>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
